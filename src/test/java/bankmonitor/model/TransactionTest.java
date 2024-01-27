@@ -2,6 +2,7 @@ package bankmonitor.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import bankmonitor.model.entity.Transaction;
 import org.junit.jupiter.api.Test;
 
 public class TransactionTest {
