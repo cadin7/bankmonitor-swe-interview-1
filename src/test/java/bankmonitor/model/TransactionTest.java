@@ -12,12 +12,18 @@ public class TransactionTest {
     @Test
     @DisplayName("WHEN transaction created THEN the result is the transaction")
     void createTransaction() {
-        final var transaction = new Transaction("{ \"reference\": \"foo\", \"amount\": 300}");
+        final var jsonData = """
+                {
+                    "reference": "foo",
+                    "amount": 300
+                }
+                """;
+        final var transaction = new Transaction(jsonData);
 
         assertNotNull(transaction.getTimestamp());
         assertEquals(transaction.getReference(), "foo");
         assertEquals(transaction.getAmount(), 300);
-        assertEquals(transaction.getData(), "{ \"reference\": \"foo\", \"amount\": 300}");
+        assertEquals(transaction.getData(), jsonData);
     }
 
     @Test

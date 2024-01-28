@@ -36,19 +36,13 @@ public class Transaction {
 
     public Integer getAmount() {
         JSONObject jsonData = new JSONObject(this.data);
-        if (jsonData.has("amount")) {
-            return jsonData.getInt("amount");
-        } else {
-            return -1;
-        }
+
+        return jsonData.has("amount") ? jsonData.getInt("amount") : -1;
     }
 
     public String getReference() {
         JSONObject jsonData = new JSONObject(this.data);
-        if (jsonData.has(REFERENCE_KEY)) {
-            return jsonData.getString(REFERENCE_KEY);
-        } else {
-            return "";
-        }
+
+        return jsonData.has(REFERENCE_KEY) ? jsonData.getString(REFERENCE_KEY) : "";
     }
 }

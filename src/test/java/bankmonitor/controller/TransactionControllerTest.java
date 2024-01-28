@@ -36,7 +36,11 @@ public class TransactionControllerTest {
 
     @Test
     void getAllTransactionsTest() throws Exception {
-        final var jsonData = "{\"amount\": 1}";
+        final var jsonData = """
+                {
+                    "amount": 1
+                }
+                """;
         final var transactionDto = TransactionDto.builder()
                 .data(jsonData)
                 .build();
@@ -51,11 +55,15 @@ public class TransactionControllerTest {
 
     @Test
     void createTransactionTest() throws Exception {
-        final var jsonData = "{\"amount\": 100}";
+        final var jsonData = """
+                {
+                    "amount": 100
+                }
+                """;
         final var transactionDto = TransactionDto.builder()
                 .data(jsonData)
                 .build();
-        
+
         when(transactionService.createTransaction(anyString()))
                 .thenReturn(transactionDto);
 
@@ -68,7 +76,11 @@ public class TransactionControllerTest {
     @Test
     void updateTransactionTest() throws Exception {
         final var id = 1L;
-        final var updateData = "{\"amount\": 200}";
+        final var updateData = """
+                {
+                    "amount": 100
+                }
+                """;
         final var transactionDto = TransactionDto.builder()
                 .data(updateData)
                 .build();
