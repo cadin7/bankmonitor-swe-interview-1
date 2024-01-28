@@ -8,23 +8,6 @@ public class TransactionMappers implements Mappers<TransactionDto, Transaction> 
     public ModelMapper<Transaction, TransactionDto> toApiMapper() {
         return new TransactionMapper();
     }
-
-    @Override
-    public ModelMapper<TransactionDto, Transaction> toDbMapper() {
-        return new DbTransactionMapper();
-    }
-}
-
-class DbTransactionMapper implements ModelMapper<TransactionDto, Transaction> {
-
-    @Override
-    public Transaction nullSafeMap(TransactionDto source) {
-        return Transaction.builder()
-                .id(source.id())
-                .timestamp(source.timestamp())
-                .data(source.data())
-                .build();
-    }
 }
 
 class TransactionMapper implements ModelMapper<Transaction, TransactionDto> {
